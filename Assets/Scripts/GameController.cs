@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         win = winObj.GetComponent<Win>();
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;

@@ -6,36 +6,54 @@ using TMPro;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] private float speed;
-    [SerializeField] private float lookSpeed;
-    private Vector2 rotation = Vector2.zero;
+    //[SerializeField] private float speed;
+    //[SerializeField] private float lookSpeed;
 
     [SerializeField] private GameObject respawnPointObj;
     [HideInInspector] public Vector3 respawnPoint;
 
     [SerializeField] private GameObject winObj;
     private Win win;
-    public bool hasKey = false;
+    [HideInInspector] public bool hasKey = false;
     [SerializeField] private GameObject key;
 
     [SerializeField] private TMP_Text keyText;
+
+    [SerializeField] private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         respawnPoint = respawnPointObj.transform.position;
         win = winObj.GetComponent<Win>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!win.won) {
-            Move();
-            Look();
+        if (!win.won)
+        {
+            AnimMovement();
         }
     }
 
+    private void AnimMovement() {
+        if (transform.position.y < -1.5 && transform.position.y > -50)
+            anim.SetBool("Falling", true);
+        else
+            anim.SetBool("Falling", false);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            anim.SetBool("Running", true);
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+            anim.SetBool("Running", false);
+
+        anim.SetFloat("Speed", Input.GetAxis("Vertical"));
+        anim.SetFloat("Direction", Input.GetAxis("Horizontal"));
+    }
+
+    /* From old movement
     private void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -50,6 +68,7 @@ public class Player : MonoBehaviour
         rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
         transform.eulerAngles = rotation;
     }
+    */
 
     private void OnCollisionEnter(Collision collision)
     {

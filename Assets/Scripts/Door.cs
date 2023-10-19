@@ -5,11 +5,19 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject hinge;
 
-    private void OnTriggerEnter(Collider other)
+    private Animator anim;
+    private void Start()
     {
-        if (player.GetComponent<Player>().hasKey) {
-            Destroy(gameObject);
+        anim = hinge.GetComponent<Animator>();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (player.GetComponent<Player>().hasKey && Input.GetKeyDown(KeyCode.T)) {
+            anim.SetBool("Open", true);
+            Destroy(this);
         }
     }
 }
