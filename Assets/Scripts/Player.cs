@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Animator anim;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour
     }
 
     private void AnimMovement() {
-        if (transform.position.y < -1.5 && transform.position.y > -50)
+        if (transform.position.y < -8 && transform.position.y > -45)
             anim.SetBool("Falling", true);
         else
             anim.SetBool("Falling", false);
