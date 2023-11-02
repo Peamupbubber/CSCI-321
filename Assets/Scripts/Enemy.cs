@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
                 playerInSight = true;
                 Debug.Log("Player sighted!");
             }
-
         }
     }
 
