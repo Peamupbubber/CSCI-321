@@ -2195,6 +2195,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8262705592453083445, guid: 755e07c3e997b0f45a070ebbb2a3ed3c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2145523759}
+    - targetCorrespondingSourceObject: {fileID: 8262705592453083445, guid: 755e07c3e997b0f45a070ebbb2a3ed3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2145523760}
   m_SourcePrefab: {fileID: 100100000, guid: 755e07c3e997b0f45a070ebbb2a3ed3c, type: 3}
 --- !u!1 &2145523758 stripped
 GameObject:
@@ -2213,6 +2216,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7352b6cb436ebb498db378ad7a56af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2145523760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145523758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f473c773148914c85e23ab1782713a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 0}
+  target: {fileID: 0}
+  interact: {fileID: 0}
+  combat: {fileID: 0}
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
